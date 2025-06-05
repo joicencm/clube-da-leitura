@@ -59,7 +59,7 @@ public abstract class TelaBase
 
         repositorio.CadastrarRegistro(novoRegistro);
 
-        Console.WriteLine($"\n{nomeEntidade} cadastrado com sucesso!");
+        Console.WriteLine($"\n{nomeEntidade} cadastrado(a) com sucesso!");
         Console.ReadLine();
     }
 
@@ -82,7 +82,7 @@ public abstract class TelaBase
 
         repositorio.EditarRegistro(idSelecionado, registroAtualizado);
 
-        Console.WriteLine($"\n{nomeEntidade} editado com sucesso!");
+        Console.WriteLine($"\n{nomeEntidade} editado(a) com sucesso!");
         Console.ReadLine();
     }
 
@@ -103,7 +103,7 @@ public abstract class TelaBase
 
         repositorio.ExcluirRegistro(idSelecionado);
 
-        Console.WriteLine($"\n{nomeEntidade} excluído com sucesso!");
+        Console.WriteLine($"\n{nomeEntidade} excluído(a) com sucesso!");
         Console.ReadLine();
     }
 
