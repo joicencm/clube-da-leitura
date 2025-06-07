@@ -22,11 +22,11 @@ public class TelaCaixa : TelaBase
             "Id", "Etiqueta", "Cor", "Dias de Empréstimo"
             );
 
-        EntidadeBase[] caixa = repositorio.SelecionarRegistros();
+        EntidadeBase[] caixas = repositorio.SelecionarRegistros();
 
-        for (int i = 0; i < caixa.Length; i++)
+        for (int i = 0; i < caixas.Length; i++)
         {
-            Caixa c = (Caixa)caixa[i];
+            Caixa c = (Caixa)caixas[i];
 
             if (c == null)
                 continue;
