@@ -10,6 +10,7 @@ class Caixa : EntidadeBase
     public string Etiqueta { get; set; }
     public string Cor { get; set; }
     public int DiasEmprestimo { get; set; }
+    public double PeriodoEmprestimo { get; internal set; }
 
     public Caixa(string etiqueta, string cor)
     {

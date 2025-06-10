@@ -1,5 +1,7 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
+﻿
+using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
+using ClubeDaLeitura.ConsoleApp.ModuloEmprestimo;
 using ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado;
@@ -17,6 +19,9 @@ public class TelaPrincipal
     private RepositorioRevista repositorioRevista;
     private TelaRevista telaRevista;
 
+    private RepositorioEmprestimo repositorioEmprestimo;
+    private TelaEmprestimo telaEmprestimo;
+
     public TelaPrincipal()
     {
         repositorioAmigo = new RepositorioAmigo();
@@ -27,6 +32,18 @@ public class TelaPrincipal
 
         repositorioRevista = new RepositorioRevista();
         telaRevista = new TelaRevista(repositorioRevista, repositorioCaixa);
+
+        repositorioEmprestimo = new RepositorioEmprestimo();
+        telaEmprestimo = new TelaEmprestimo(repositorioEmprestimo, repositorioAmigo, repositorioRevista);
+
+        Amigo amigo = new Amigo("Júnior", "Amanda", "49 99999-3333");
+        repositorioAmigo.CadastrarRegistro(amigo);
+
+        Caixa caixa = new Caixa("Ação", "Vermelha");
+        repositorioCaixa.CadastrarRegistro(caixa);
+
+        Revista revista = new Revista("Superman", 150, 1995, caixa);
+        repositorioRevista.CadastrarRegistro(revista);
     }
 
     public void ApresentarMenuPrincipal()
@@ -40,7 +57,7 @@ public class TelaPrincipal
         Console.WriteLine();
 
         Console.WriteLine("1 - Controle de Amigos");
-        Console.WriteLine("2 - Controle de Caixa");
+        Console.WriteLine("2 - Controle de Caixas");
         Console.WriteLine("3 - Controle de Revistas");
         Console.WriteLine("4 - Controle de Empréstimos");
         Console.WriteLine("S - Sair");
@@ -63,7 +80,7 @@ public class TelaPrincipal
             return telaRevista;
 
         else if (opcaoEscolhida == '4')
-            return null;
+            return telaEmprestimo;
 
         return null;
     }

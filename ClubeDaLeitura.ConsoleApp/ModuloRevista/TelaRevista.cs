@@ -18,7 +18,7 @@ public class TelaRevista : TelaBase
         if (exibirCabecalho == true)
             ExibirCabecalho();
 
-        Console.WriteLine("Visualização de Amigos");
+        Console.WriteLine("Visualização de Revistas");
 
         Console.WriteLine();
 
