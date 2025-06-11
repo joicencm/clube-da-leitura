@@ -38,4 +38,37 @@ public class RepositorioEmprestimo : RepositorioBase
 
         return emprestimosAtivos;
     }
+
+    public EntidadeBase[] SelecionarEmprestimosComMulta()
+    {
+        int contadorEmprestimoComMulta = 0;
+
+        for(int i =0; i < registros.Length; i++)
+        {
+            Emprestimo emprestimoAtual = (Emprestimo)registros[i];
+
+            if (emprestimoAtual == null)
+                continue;
+
+            if (emprestimoAtual.Status == "Aberto" && emprestimoAtual.Multa != null && !emprestimoAtual.MultaPaga)
+                contadorEmprestimoComMulta++;
+        }
+
+        Emprestimo[] emprestimoComMulta = new Emprestimo[contadorEmprestimoComMulta];
+
+        int contadorAuxiliar = 0;
+
+        for(int i =0; i < registros.Length; i++)
+        {
+            Emprestimo emprestimoAtual = (Emprestimo)registros[i];
+
+            if (emprestimoAtual == null)
+                continue;
+
+            if (emprestimoAtual.Status == "Aberto" && emprestimoAtual.Multa != null && emprestimoAtual.MultaPaga)
+                emprestimoComMulta[contadorAuxiliar++] = (Emprestimo)registros[i];
+        }
+
+        return emprestimoComMulta;
+    }
 }

@@ -13,7 +13,7 @@ public class TelaCaixa : TelaBase
         if (exibirCabecalho == true)
             ExibirCabecalho();
 
-        Console.WriteLine("Visualização de Amigos");
+        Console.WriteLine("Visualização de Caixas");
 
         Console.WriteLine();
 
@@ -36,6 +36,10 @@ public class TelaCaixa : TelaBase
                 c.Id, c.Etiqueta, c.Cor, c.DiasEmprestimo
             );
         }
+
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.Write($"\nDigite ENTER para continuar...");
+        Console.ResetColor();
 
         Console.ReadLine();
     }

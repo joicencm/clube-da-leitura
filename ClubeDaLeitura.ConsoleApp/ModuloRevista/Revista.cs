@@ -3,7 +3,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloRevista;
 
-class Revista: EntidadeBase
+public class Revista: EntidadeBase
 {
     public string Titulo { get; set; }
     public int NumeroEdicao { get; set; }

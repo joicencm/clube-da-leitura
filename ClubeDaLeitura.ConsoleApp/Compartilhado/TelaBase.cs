@@ -11,7 +11,7 @@ public abstract class TelaBase
         this.repositorio = repositorio;
     }
 
-    public char ApresentarMenu()
+    public virtual char ApresentarMenu()
     {
         ExibirCabecalho();
 
@@ -29,7 +29,7 @@ public abstract class TelaBase
         return opcaoEscolhida;
     }
 
-    public void CadastrarRegistro()
+    public virtual void CadastrarRegistro()
     {
         ExibirCabecalho();
 
@@ -59,11 +59,14 @@ public abstract class TelaBase
 
         repositorio.CadastrarRegistro(novoRegistro);
 
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\n{nomeEntidade} cadastrado(a) com sucesso!");
+        Console.ResetColor();
+
         Console.ReadLine();
     }
 
-    public void EditarRegistro()
+    public virtual void EditarRegistro()
     {
         ExibirCabecalho();
 
@@ -82,7 +85,10 @@ public abstract class TelaBase
 
         repositorio.EditarRegistro(idSelecionado, registroAtualizado);
 
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\n{nomeEntidade} editado(a) com sucesso!");
+        Console.ResetColor();
+
         Console.ReadLine();
     }
 
@@ -103,7 +109,10 @@ public abstract class TelaBase
 
         repositorio.ExcluirRegistro(idSelecionado);
 
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\n{nomeEntidade} excluído(a) com sucesso!");
+        Console.ResetColor();
+
         Console.ReadLine();
     }
 

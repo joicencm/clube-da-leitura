@@ -5,7 +5,7 @@ using ClubeDaLeitura.ConsoleApp.ModuloAmigo;
 
 namespace ClubeDaLeitura.ConsoleApp.ModuloCaixa;
 
-class Caixa : EntidadeBase
+public class Caixa : EntidadeBase
 {
     public string Etiqueta { get; set; }
     public string Cor { get; set; }
